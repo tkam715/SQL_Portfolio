@@ -137,5 +137,8 @@ END as "affordability"
 FROM sales
 GROUP BY affordability;
 
+-- Highest priced item sold in Australia?
+SELECT country, product, MAX(price) AS highest_priced_item FROM sales WHERE country = "Australia";
+
 
 
