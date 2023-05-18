@@ -124,13 +124,14 @@ SELECT name FROM sales WHERE product = "Chair" AND payment_type = "Mastercard";
 -- Total $ earned from selling to each country using HAVING & GROUP BY 
 SELECT country, SUM(price) AS total_earned FROM sales GROUP BY country;
 
--- Finding the affordability of products using CASE 
+-- Finding the affordability of each product sold using CASE & GROUP BY
 SELECT product, price, CASE WHEN price > 3000 THEN "expensive"
 WHEN price < 3000 THEN "inexpensive"
 END as "affordability"
-FROM sales;
+FROM sales
+GROUP BY product;
 
--- How many items are expensive and inexpensive?
+-- How many total items are expensive and inexpensive?
 SELECT COUNT(*), CASE WHEN price > 3000 THEN "expensive"
 WHEN price < 3000 THEN "inexpensive"
 END as "affordability"
@@ -139,6 +140,4 @@ GROUP BY affordability;
 
 -- Highest priced item sold in Australia?
 SELECT country, product, MAX(price) AS highest_priced_item FROM sales WHERE country = "Australia";
-
-
 
