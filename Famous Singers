@@ -1,0 +1,87 @@
+/* Table of famous singers, their age, and nationality */
+
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER,
+    nationality TEXT);
+    
+INSERT INTO singers (name, age, nationality) VALUES ("Taylor Swift", "33", "American");
+INSERT INTO singers (name, age, nationality) VALUES ("Novo Amor", "31", "Welsh" );
+INSERT INTO singers (name, age, nationality) VALUES ("Kacey Musgraves", "34", "American");
+INSERT INTO singers (name, age, nationality) VALUES ("Morgan Wallen", "30", "American");
+INSERT INTO singers (name, age, nationality) VALUES ("Sufjan Stevens", "47", "American");
+INSERT INTO singers (name, age, nationality) VALUES ("Shreya Goshal", "39", "Indian");
+INSERT INTO singers (name, age, nationality) VALUES ("Adele", "35", "English");
+INSERT INTO singers (name, age, nationality) VALUES ("Miley Cyrus", "30", "American");
+
+/* Table of singers' id, genre, and amount of monthly_listeners */
+
+CREATE TABLE popularity ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    singer_id INTEGER, 
+    genre TEXT,
+    monthly_listeners INTEGER);
+
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("1", "pop", "85,000,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("2", "indie", "05,000,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("3", "country", "06,500,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("4", "country", "24,600,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("5", "indie", "08,370,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("6", "Indian film pop", "27,800,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("7", "pop", "53,800,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("8", "pop", "77,800,000");
+
+/*Using JOIN to look at how many monthly listeners each singer has, ranked from most to least listeners*/
+
+SELECT singers.name, popularity.monthly_listeners
+FROM singers
+JOIN popularity
+ON singers.id = popularity.singer_id
+ORDER BY monthly_listeners desc;
+
+/* Table of famous singers, their age, and nationality */
+
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER,
+    nationality TEXT);
+    
+INSERT INTO singers (name, age, nationality) VALUES ("Taylor Swift", "33", "American");
+INSERT INTO singers (name, age, nationality) VALUES ("Novo Amor", "31", "Welsh" );
+INSERT INTO singers (name, age, nationality) VALUES ("Kacey Musgraves", "34", "American");
+INSERT INTO singers (name, age, nationality) VALUES ("Morgan Wallen", "30", "American");
+INSERT INTO singers (name, age, nationality) VALUES ("Sufjan Stevens", "47", "American");
+INSERT INTO singers (name, age, nationality) VALUES ("Shreya Goshal", "39", "Indian");
+INSERT INTO singers (name, age, nationality) VALUES ("Adele", "35", "English");
+INSERT INTO singers (name, age, nationality) VALUES ("Miley Cyrus", "30", "American");
+
+/* Table of singers' id, their genre, and amount of monthly_listeners */
+
+CREATE TABLE popularity ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    singer_id INTEGER, 
+    genre TEXT,
+    monthly_listeners INTEGER);
+
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("1", "pop", "85,000,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("2", "indie", "05,000,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("3", "country", "06,500,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("4", "country", "24,600,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("5", "indie", "08,370,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("6", "Indian film pop", "27,800,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("7", "pop", "53,800,000");
+INSERT INTO popularity (singer_id, genre, monthly_listeners) VALUES ("8", "pop", "77,800,000");
+
+/*Using JOIN to look at how many monthly listeners each singer has, ranked from most to least listeners*/
+
+SELECT singers.name, popularity.monthly_listeners
+FROM singers
+JOIN popularity
+ON singers.id = popularity.singer_id
+ORDER BY monthly_listeners desc;
+
+
+
+
